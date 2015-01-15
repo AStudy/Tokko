@@ -19,7 +19,8 @@ class Enemy
   {
     if(frame % 30 == 0)
     {
-      //add missile
+      EnemyMissile em = new EnemyMissile(x + w/2, y+h);
+      enemyMissiles.add(em);
     }
       
     frame++;

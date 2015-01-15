@@ -2,6 +2,7 @@ Myplane my_plane;
 ArrayList myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
+ArrayList<EnemyMissile> enemyMissiles;
 
 void setup() {
   size(720, 720);
@@ -10,6 +11,7 @@ void setup() {
   my_plane = new Myplane();
   myMissiles = new ArrayList();
   enemies = new ArrayList<Enemy>();
+  enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
 
   Enemy enemy = new Enemy(200, 100);
@@ -37,6 +39,8 @@ void draw() {
     enemy.draw();
   }
   
+  for(EnemyMissile em:enemyMissiles){ em.missileGo(); }
+
 }
 
 void keyPressed(){
