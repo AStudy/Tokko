@@ -2,7 +2,7 @@ class Myplane {
   public float xPos, yPos;
   int moveValue;
   public boolean upFlag, downFlag, rightFlag, leftFlag = false;
-  //boolean
+  public boolean isDead = false;
   
   Myplane(){
     xPos = width/2.0;

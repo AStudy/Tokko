@@ -20,6 +20,9 @@ void setup() {
 
 void draw() {  
   background(255);
+
+  if(my_plane.isDead == true){return;}
+
   if(missileFlag){
     Mymissile mymissile = new Mymissile(my_plane.xPos, my_plane.yPos);
     myMissiles.add(mymissile);
@@ -39,7 +42,7 @@ void draw() {
     enemy.draw();
   }
   
-  for(EnemyMissile em:enemyMissiles){ em.missileGo(); }
+  for(EnemyMissile em:enemyMissiles){ em.missileGo(my_plane); }
 
 }
 
