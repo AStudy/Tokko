@@ -1,6 +1,7 @@
 Myplane my_plane;
 ArrayList myMissiles;
 boolean missileFlag;
+ArrayList<Enemy> enemies;
 
 void setup() {
   size(720, 720);
@@ -8,10 +9,14 @@ void setup() {
   frameRate(30);
   my_plane = new Myplane();
   myMissiles = new ArrayList();
+  enemies = new ArrayList<Enemy>();
   missileFlag = false;
+
+  Enemy enemy = new Enemy(200, 100);
+  enemies.add(enemy);
 }
 
-void draw() {
+void draw() {  
   background(255);
   if(missileFlag){
     Mymissile mymissile = new Mymissile(my_plane.xPos, my_plane.yPos);
@@ -25,6 +30,13 @@ void draw() {
     }
   }
   my_plane.mydraw();
+  
+  for(Enemy enemy:enemies)
+  {
+    enemy.done();
+    enemy.draw();
+  }
+  
 }
 
 void keyPressed(){
