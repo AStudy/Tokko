@@ -2,8 +2,7 @@ class Enemy
 {
   float x, y;
   float w = 50, h = 50;
-  //int frame = 0;
-  public boolean isDead = false; //added
+  public boolean isDead = false;
 
   Enemy(float _x, float _y)
   {
@@ -13,7 +12,7 @@ class Enemy
   
   void draw()
   {
-    rectMode(CENTER); //added
+    rectMode(CENTER);
     rect(x, y, w, h);  
   }
   
@@ -22,11 +21,9 @@ class Enemy
     //if(frame % 30 == 0)
     if(frameCount % 30 == 0)
     {
-      EnemyMissile em = new EnemyMissile(x, y+h); //changed
+      EnemyMissile em = new EnemyMissile(x, y+h);
       enemyMissiles.add(em);
     }
-      
-    //frame++;
   }
 }
 
