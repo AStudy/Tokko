@@ -1,5 +1,5 @@
 Myplane my_plane;
-ArrayList myMissiles;
+ArrayList<Mymissile> myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
 ArrayList<EnemyMissile> enemyMissiles;
@@ -9,12 +9,12 @@ void setup() {
   background(255);
   frameRate(30);
   my_plane = new Myplane();
-  myMissiles = new ArrayList();
+  myMissiles = new ArrayList<Mymissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
 
-  Enemy enemy = new Enemy(200, 100);
+  Enemy enemy =new Enemy(200, 100); // changed
   enemies.add(enemy);
 }
 
@@ -27,19 +27,15 @@ void draw() {
     Mymissile mymissile = new Mymissile(my_plane.xPos, my_plane.yPos);
     myMissiles.add(mymissile);
   }
-  for(int i = myMissiles.size() - 1; i >= 0; i--){
-    Mymissile m = (Mymissile) myMissiles.get(i);
-    m.missileGo();
-    if( m.yPos < 0 ){
-      myMissiles.remove(i);
-    }
-  }
   my_plane.mydraw();
   
   for(Enemy enemy:enemies)
   {
-    enemy.done();
-    enemy.draw();
+    if(enemy.isDead == false){
+      enemy.done();
+      enemy.draw();
+      for(Mymissile myMissile:myMissiles){ myMissile.missileGo(enemy); }
+    }
   }
   
   for(EnemyMissile em:enemyMissiles){ em.missileGo(my_plane); }

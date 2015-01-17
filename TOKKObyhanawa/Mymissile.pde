@@ -6,12 +6,12 @@ class Mymissile{
     yPos = _yPos;
   }
   
-  void missileGo(){
+  boolean missileGo(Enemy e){
     yPos = yPos - 5;
     ellipse(xPos, yPos, 5, 5);
-    /*
-    distance = dist(xPos, yPos, enemy.x, enemy.y); //dist between an enemy-plane and a missile
-    if(distance < ???) enemy.dead();
-    */
+    float distance = dist(xPos, yPos, e.x, e.y); //dist between an enemy-plane and a missile //added
+    if(distance < 25){ e.isDead = true; } //added
+    
+    return true;
   }
 }
