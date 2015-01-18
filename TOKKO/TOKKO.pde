@@ -1,4 +1,4 @@
-Myplane my_plane;
+Myplane myPlane;
 ArrayList<Mymissile> myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
@@ -8,7 +8,7 @@ void setup() {
   size(720, 720);
   background(255);
   frameRate(30);
-  my_plane = new Myplane();
+  myPlane = new Myplane();
   myMissiles = new ArrayList<Mymissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
@@ -21,13 +21,13 @@ void setup() {
 void draw() {  
   background(255);
 
-  if(my_plane.isDead == true){return;}
+  if(myPlane.isDead == true){return;}
 
   if(missileFlag){
-    Mymissile mymissile = new Mymissile(my_plane.xPos, my_plane.yPos);
+    Mymissile mymissile = new Mymissile(myPlane.xPos, myPlane.yPos);
     myMissiles.add(mymissile);
   }
-  my_plane.mydraw();
+  myPlane.mydraw();
   
   for(Enemy enemy:enemies)
   {
@@ -38,7 +38,7 @@ void draw() {
     }
   }
   
-  for(EnemyMissile em:enemyMissiles){ em.missileGo(my_plane); }
+  for(EnemyMissile em:enemyMissiles){ em.missileGo(myPlane); }
 
 }
 
@@ -54,16 +54,16 @@ void keyReleased(){
   }
   if(key == CODED){
     if(keyCode == UP){
-        my_plane.upFlag = false;
+        myPlane.upFlag = false;
     }
     if(keyCode == DOWN){
-        my_plane.downFlag = false;
+        myPlane.downFlag = false;
     }
     if(keyCode == RIGHT){
-        my_plane.rightFlag = false;
+        myPlane.rightFlag = false;
     }
     if(keyCode == LEFT){
-        my_plane.leftFlag = false;
+        myPlane.leftFlag = false;
     }
   }
 }
