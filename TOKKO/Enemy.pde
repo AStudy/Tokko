@@ -12,8 +12,12 @@ class Enemy
   
   void draw()
   {
-    rectMode(CENTER);
-    rect(x, y, w, h);  
+    imageMode(CENTER);
+    pushMatrix();
+    translate(x, y);
+    scale(1, -1);
+    image(tekiJet, 0, 0);  
+    popMatrix();
   }
   
   void done()

@@ -4,10 +4,16 @@ boolean missileFlag;
 ArrayList<Enemy> enemies;
 ArrayList<EnemyMissile> enemyMissiles;
 
+PImage jikiJet, tekiJet;
+
 void setup() {
   size(720, 720);
   background(255);
   frameRate(30);
+  
+  jikiJet = loadImage("jikijet.bmp");
+  tekiJet = loadImage("tekijet.bmp");
+  
   myPlane = new Myplane();
   myMissiles = new ArrayList<Mymissile>();
   enemies = new ArrayList<Enemy>();
