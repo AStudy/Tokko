@@ -20,7 +20,9 @@ void setup() {
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
 
-  Enemy enemy =new Enemy(200, 100); // changed
+  Enemy enemy =new Enemy(200, 100);
+  enemies.add(enemy);
+  enemy =new AimingEnemy(500, 100);
   enemies.add(enemy);
 }
 
@@ -38,7 +40,7 @@ void draw() {
   for(Enemy enemy:enemies)
   {
     if(enemy.isDead == false){
-      enemy.done();
+      enemy.done(myPlane);
       enemy.draw();
       for(Mymissile myMissile:myMissiles){ myMissile.missileGo(enemy); }
     }

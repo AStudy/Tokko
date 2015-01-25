@@ -6,6 +6,13 @@ class EnemyMissile{
     pX = _pX;
     pY = _pY;
   }
+
+  EnemyMissile(float _pX, float _pY, float _sX, float _sY){
+    pX = _pX;
+    pY = _pY;
+    sX = _sX;
+    sY = _sY;
+  }
   
   boolean missileGo(Myplane myPlane){
     pX += sX;
