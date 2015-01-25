@@ -1,16 +1,18 @@
 class EnemyMissile{
-  float xPos, yPos;
+  float pX, pY; //position
+  float sX = 0, sY = 5; //speed
   
-  EnemyMissile(float _xPos, float _yPos){
-    xPos = _xPos;
-    yPos = _yPos;
+  EnemyMissile(float _pX, float _pY){
+    pX = _pX;
+    pY = _pY;
   }
   
   boolean missileGo(Myplane myPlane){
-    yPos = yPos + 5;
-    ellipse(xPos, yPos, 5, 5);
+    pX += sX;
+    pY += sY;
+    ellipse(pX, pY, 5, 5);
 
-    float distance = dist(xPos, yPos, myPlane.xPos, myPlane.yPos);
+    float distance = dist(pX, pY, myPlane.xPos, myPlane.yPos);
     if(distance < 10){ myPlane.isDead = true; }
 
     return true;
