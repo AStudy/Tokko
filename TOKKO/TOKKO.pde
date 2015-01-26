@@ -1,5 +1,3 @@
-import java.util.Map;
-
 HashMap<String, PImage> images = new HashMap<String, PImage>();
 
 MyPlane myPlane;
@@ -7,8 +5,6 @@ ArrayList<MyMissile> myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
 ArrayList<EnemyMissile> enemyMissiles;
-
-PImage jikiJet, tekiJet;
 
 void setup() {
   images.put("jikiJet", loadImage("jikijet.bmp"));
