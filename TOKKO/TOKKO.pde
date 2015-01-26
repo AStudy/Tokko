@@ -48,10 +48,10 @@ void draw() {
     if(enemy.isDead == false){
       enemy.done(myPlane);
       enemy.draw();
-      for(MyMissile myMissile:myMissiles){ myMissile.missileGo(enemy); }
     }
   }
-  
+
+  for(MyMissile mm : myMissiles){ mm.missileGo(enemies); }
   for(EnemyMissile em:enemyMissiles){ em.missileGo(myPlane); }
 
 }

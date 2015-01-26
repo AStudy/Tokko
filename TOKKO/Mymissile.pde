@@ -6,12 +6,15 @@ class MyMissile{
     yPos = _yPos;
   }
   
-  boolean missileGo(Enemy e){
+  boolean missileGo(ArrayList<Enemy> enemies){
     yPos = yPos - 5;
     ellipse(xPos, yPos, 5, 5);
-    float distance = dist(xPos, yPos, e.x, e.y);
-    if(distance < 25){ e.isDead = true; }
     
+    for(Enemy e : enemies)
+    {
+      float distance = dist(xPos, yPos, e.x, e.y);
+      if(distance < 25){ e.isDead = true; }
+    }
     return true;
   }
 }
