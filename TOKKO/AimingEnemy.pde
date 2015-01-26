@@ -6,7 +6,7 @@ class AimingEnemy extends Enemy
     super(_x, _y);
   }
   
-  void addMissile(Myplane myPlane)
+  void addMissile(MyPlane myPlane)
   {
     float d = dist(x, y, myPlane.xPos, myPlane.yPos);
     if (d == 0) return;

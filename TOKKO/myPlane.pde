@@ -1,10 +1,10 @@
-class Myplane {
+class MyPlane {
   public float xPos, yPos;
   int moveValue;
   public boolean upFlag, downFlag, rightFlag, leftFlag = false;
   public boolean isDead = false;
   
-  Myplane(){
+  MyPlane(){
     xPos = width/2.0;
     yPos = 7 * height/8.0;
     moveValue = 5;

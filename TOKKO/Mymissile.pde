@@ -1,7 +1,7 @@
-class Mymissile{
+class MyMissile{
   float xPos, yPos;
   
-  Mymissile(float _xPos, float _yPos){
+  MyMissile(float _xPos, float _yPos){
     xPos = _xPos;
     yPos = _yPos;
   }

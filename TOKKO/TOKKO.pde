@@ -1,5 +1,5 @@
-Myplane myPlane;
-ArrayList<Mymissile> myMissiles;
+MyPlane myPlane;
+ArrayList<MyMissile> myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
 ArrayList<EnemyMissile> enemyMissiles;
@@ -14,8 +14,8 @@ void setup() {
   jikiJet = loadImage("jikijet.bmp");
   tekiJet = loadImage("tekijet.bmp");
   
-  myPlane = new Myplane();
-  myMissiles = new ArrayList<Mymissile>();
+  myPlane = new MyPlane();
+  myMissiles = new ArrayList<MyMissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
@@ -26,14 +26,14 @@ void setup() {
   enemies.add(enemy);
 }
 
-void draw() {  
+void draw() {   
   background(255);
 
   if(myPlane.isDead == true){return;}
 
   if(missileFlag){
-    Mymissile mymissile = new Mymissile(myPlane.xPos, myPlane.yPos);
-    myMissiles.add(mymissile);
+    MyMissile myMissile = new MyMissile(myPlane.xPos, myPlane.yPos);
+    myMissiles.add(myMissile);
   }
   myPlane.mydraw();
   
@@ -42,7 +42,7 @@ void draw() {
     if(enemy.isDead == false){
       enemy.done(myPlane);
       enemy.draw();
-      for(Mymissile myMissile:myMissiles){ myMissile.missileGo(enemy); }
+      for(MyMissile myMissile:myMissiles){ myMissile.missileGo(enemy); }
     }
   }
   

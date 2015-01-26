@@ -14,7 +14,7 @@ class EnemyMissile{
     sY = _sY;
   }
   
-  boolean missileGo(Myplane myPlane){
+  boolean missileGo(MyPlane myPlane){
     pX += sX;
     pY += sY;
     ellipse(pX, pY, 5, 5);

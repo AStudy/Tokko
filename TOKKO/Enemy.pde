@@ -20,13 +20,13 @@ class Enemy
     popMatrix();
   }
   
-  void addMissile(Myplane myPlane)
+  void addMissile(MyPlane myPlane)
   {
     EnemyMissile em = new EnemyMissile(x, y+h);
     enemyMissiles.add(em);
   }
   
-  void done(Myplane myPlane)
+  void done(MyPlane myPlane)
   {
     //if(frame % 30 == 0)
     if(frameCount % 30 == 0)
