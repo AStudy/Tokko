@@ -12,11 +12,10 @@ class Enemy
   
   void draw()
   {
-    imageMode(CENTER);
     pushMatrix();
     translate(x, y);
     scale(1, -1);
-    image(tekiJet, 0, 0);  
+    image(images.get("tekiJet1"), 0, 0);  
     popMatrix();
   }
   

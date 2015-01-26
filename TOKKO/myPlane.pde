@@ -11,8 +11,8 @@ class MyPlane {
   }
 
   void mydraw(){
-    imageMode(CENTER);
-    image(jikiJet, xPos, yPos);
+    image(images.get("jikiJet"), xPos, yPos);
+    
     
     if(upFlag == true) yPos = max(yPos - moveValue, 0); //Go up
     if(downFlag == true) yPos = min(yPos + moveValue, height); //Go down
