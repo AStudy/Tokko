@@ -31,9 +31,7 @@ void setup() {
   }
   
   images.put("jikiJet", loadImage(csv[0][0]));
-  for(int i = 1; i < lines.length; i++){
-    images.put("tekiJet" + i, loadImage(csv[i][0]));
-  }
+  images.put("tekiJet", loadImage(csv[1][0]));
   
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();

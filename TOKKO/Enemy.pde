@@ -15,7 +15,7 @@ class Enemy
     pushMatrix();
     translate(x, y);
     scale(1, -1);
-    image(images.get("tekiJet1"), 0, 0);  
+    image(images.get("tekiJet"), 0, 0);  
     popMatrix();
   }
   
