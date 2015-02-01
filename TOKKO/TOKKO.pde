@@ -29,9 +29,10 @@ void setup() {
       csv[i][j]=temp[j];
     }
   }
-  
-  images.put("jikiJet", loadImage(csv[0][0]));
-  images.put("tekiJet", loadImage(csv[1][0]));
+  for(int i = 0; i < lines.length; i++){
+    String csvRemoveExtension[] = split(csv[i][0], ".");
+    images.put(csvRemoveExtension[0], loadImage(csv[i][0]));
+  }
   
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();
@@ -47,7 +48,7 @@ void setup() {
 
 void draw() {   
   background(255);
-
+  
   if(myPlane.isDead == true){return;}
 
   if(missileFlag){
