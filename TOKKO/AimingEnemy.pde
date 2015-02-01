@@ -1,9 +1,9 @@
 class AimingEnemy extends Enemy
 {
 
-  AimingEnemy(float _x, float _y)
+  AimingEnemy(int _t, float _x, float _y, float _s, int _type, int _direction)
   {
-    super(_x, _y);
+    super(_t, _x, _y, _s, _type, _direction);
   }
   
   void addMissile(MyPlane myPlane)
