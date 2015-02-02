@@ -29,19 +29,16 @@ void setup() {
       Pcsv[i][j]=Ptemp[j];
     }
   }
-
-  images.put("jikiJet", loadImage(Pcsv[0][0]));
-  for (int i = 1; i < Plines.length; i++) {
-    images.put("tekiJet" + i, loadImage(Pcsv[i][0]));
+  for(int i = 0; i < Plines.length; i++){
+    images.put(Pcsv[i][0], loadImage(Pcsv[i][0]));
   }
-
+  
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
 
-  //-------
   String lines[] = loadStrings("tokkoData.csv");
   String [][] csv;
   int csvWidth=0;
@@ -62,19 +59,6 @@ void setup() {
       csv[i][j]=temp[j];
     }
   }
-<<<<<<< HEAD
-=======
-  for(int i = 0; i < lines.length; i++){
-    String csvRemoveExtension[] = split(csv[i][0], ".");
-    images.put(csvRemoveExtension[0], loadImage(csv[i][0]));
-  }
-  
-  myPlane = new MyPlane();
-  myMissiles = new ArrayList<MyMissile>();
-  enemies = new ArrayList<Enemy>();
-  enemyMissiles = new ArrayList<EnemyMissile>();
-  missileFlag = false;
->>>>>>> 36cf5f2f407d23c54191db791e21a7150243684a
 
   for (int i = 0; i < lines.length; i++) {
     int _t = Integer.valueOf(csv[i][0]).intValue();
@@ -92,15 +76,8 @@ void setup() {
 
 void draw() {   
   background(255);
-<<<<<<< HEAD
-
-  if (myPlane.isDead == true) {
-    return;
-  }
-=======
   
   if(myPlane.isDead == true){return;}
->>>>>>> 36cf5f2f407d23c54191db791e21a7150243684a
 
   if (missileFlag) {
     MyMissile myMissile = new MyMissile(myPlane.xPos, myPlane.yPos);
