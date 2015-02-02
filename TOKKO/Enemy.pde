@@ -2,7 +2,7 @@ class Enemy
 {
   public boolean check =false;
   int count = 0;
-  int t;
+  int startTime;
   float x, y, s;
   float w = 50, h = 50;
   int type;
@@ -11,7 +11,7 @@ class Enemy
 
   Enemy(int _t, float _x, float _y, float _s,int _type, int _direction)
   {
-    t = _t;
+    startTime = _t;
     x = _x;
     y = _y;
     s = _s;
@@ -21,7 +21,7 @@ class Enemy
 
   void draw()
   {
-    if (frameCount == t) check = true;
+    if (frameCount == startTime) check = true;
     if (check) {
       pushMatrix();
       translate(x, y);
@@ -43,7 +43,8 @@ class Enemy
 
   void done(MyPlane myPlane)
   {
-    //if(frame % 30 == 0)
+    if (frameCount < this.startTime){ return; }
+
     if (frameCount % 30 == 0)
     {
       addMissile(myPlane);
