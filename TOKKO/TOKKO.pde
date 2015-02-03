@@ -11,13 +11,13 @@ void setup() {
   background(255);
   frameRate(30);
   imageMode(CENTER);
-  createImage();
+  createImages();
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
-  createEnemy();
+  createEnemies();
 }
 
 void draw() {  
@@ -77,7 +77,7 @@ void keyReleased() {
   }
 }
 
-void createEnemy() {
+void createEnemies() {
   String lines[] = loadStrings("tokkoData.csv");
   String [][] csv;
   int csvWidth=0;
@@ -113,7 +113,7 @@ void createEnemy() {
   }
 }
 
-void createImage()
+void createImages()
 {
   String Plines[] = loadStrings("plane.csv"); 
   int PcsvWidth=0;
@@ -138,7 +138,7 @@ void createImage()
 }
 
 void resetGame() {
-  if (frameCount == 300) {
+  if (frameCount == 900) {
     frameCount = 0;
     for (Enemy enemy : enemies)
     {
