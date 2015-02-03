@@ -20,9 +20,10 @@ void setup() {
   csvReadEnemy(loadStrings("tokkoData.csv"));
 }
 
-void draw() {   
+void draw() {  
   background(255);
-
+  resetGame();
+  
   if (myPlane.isDead == true) {
     return;
   }
@@ -112,7 +113,7 @@ void csvReadEnemy(String lines[]) {
 
 void csvReadPhoto(String Plines[])
 {
-    int PcsvWidth=0;
+  int PcsvWidth=0;
   String [][] Pcsv;
   for (int i=0; i < Plines.length; i++) {
     String [] Pchars=split(Plines[i], ',');
@@ -130,6 +131,18 @@ void csvReadPhoto(String Plines[])
   }
   for (int i = 0; i < Plines.length; i++) {
     images.put(Pcsv[i][0], loadImage(Pcsv[i][0]));
+  }
+}
+
+void resetGame() {
+  if (frameCount == 900) {
+    frameCount = 0;
+    for (Enemy enemy : enemies)
+    {
+      enemy.check = false;
+      enemy.count = 0;
+      enemy.isDead = false;
+    }
   }
 }
 
