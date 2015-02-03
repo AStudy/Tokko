@@ -11,19 +11,20 @@ void setup() {
   background(255);
   frameRate(30);
   imageMode(CENTER);
-  csvReadPhoto(loadStrings("plane.csv"));
+  createImage();
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
-  csvReadEnemy(loadStrings("tokkoData.csv"));
+  createEnemy();
 }
 
 void draw() {  
   background(255);
   resetGame();
-  
+  println(frameCount);
+
   if (myPlane.isDead == true) {
     return;
   }
@@ -76,7 +77,8 @@ void keyReleased() {
   }
 }
 
-void csvReadEnemy(String lines[]) {
+void createEnemy() {
+  String lines[] = loadStrings("tokkoData.csv");
   String [][] csv;
   int csvWidth=0;
 
@@ -111,8 +113,9 @@ void csvReadEnemy(String lines[]) {
   }
 }
 
-void csvReadPhoto(String Plines[])
+void createImage()
 {
+  String Plines[] = loadStrings("plane.csv"); 
   int PcsvWidth=0;
   String [][] Pcsv;
   for (int i=0; i < Plines.length; i++) {
@@ -135,7 +138,7 @@ void csvReadPhoto(String Plines[])
 }
 
 void resetGame() {
-  if (frameCount == 900) {
+  if (frameCount == 300) {
     frameCount = 0;
     for (Enemy enemy : enemies)
     {
@@ -143,6 +146,7 @@ void resetGame() {
       enemy.count = 0;
       enemy.isDead = false;
     }
+    myPlane.isDead = false;
   }
 }
 
