@@ -126,25 +126,25 @@ void createEnemies(String lines[]) {
 
 void createImages()
 {
-  String Plines[] = loadStrings("plane.csv"); 
-  int PcsvWidth=0;
-  String [][] Pcsv;
-  for (int i=0; i < Plines.length; i++) {
-    String [] Pchars=split(Plines[i], ',');
-    if (Pchars.length>PcsvWidth) {
-      PcsvWidth=Pchars.length;
+  String pLines[] = loadStrings("plane.csv"); 
+  int pCsvWidth=0;
+  String [][] pCsv;
+  for (int i=0; i < pLines.length; i++) {
+    String [] pChars=split(pLines[i], ',');
+    if (pChars.length>pCsvWidth) {
+      pCsvWidth=pChars.length;
     }
   }
-  Pcsv = new String [Plines.length][PcsvWidth];
-  for (int i=0; i < Plines.length; i++) {
-    String [] Ptemp = new String [Plines.length];
-    Ptemp= split(Plines[i], ',');
-    for (int j=0; j < Ptemp.length; j++) {
-      Pcsv[i][j]=Ptemp[j];
+  pCsv = new String [pLines.length][pCsvWidth];
+  for (int i=0; i < pLines.length; i++) {
+    String [] pTemp = new String [pLines.length];
+    pTemp= split(pLines[i], ',');
+    for (int j=0; j < pTemp.length; j++) {
+      pCsv[i][j]=pTemp[j];
     }
   }
-  for (int i = 0; i < Plines.length; i++) {
-    images.put(Pcsv[i][0], loadImage(Pcsv[i][0]));
+  for (int i = 0; i < pLines.length; i++) {
+    images.put(pCsv[i][0], loadImage(pCsv[i][0]));
   }
 }
 
