@@ -17,11 +17,7 @@ void setup() {
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
-<<<<<<< HEAD
   createEnemies(loadStrings("tokkoData.csv"));
-=======
-  createEnemies();
->>>>>>> 6a48580f896472372601f4f032bd1e51fbe4fad4
 }
 
 void draw() {  
@@ -83,13 +79,8 @@ void keyReleased() {
   }
 }
 
-<<<<<<< HEAD
 void createEnemies(String lines[]) {
   //String lines[] = loadStrings("tokkoData.csv");
-=======
-void createEnemies() {
-  String lines[] = loadStrings("tokkoData.csv");
->>>>>>> 6a48580f896472372601f4f032bd1e51fbe4fad4
   String [][] csv;
   int csvWidth=0;
 
