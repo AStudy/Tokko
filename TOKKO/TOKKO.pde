@@ -11,19 +11,19 @@ void setup() {
   background(255);
   frameRate(30);
   imageMode(CENTER);
-  createImage();
+  createImages();
   myPlane = new MyPlane();
   myMissiles = new ArrayList<MyMissile>();
   enemies = new ArrayList<Enemy>();
   enemyMissiles = new ArrayList<EnemyMissile>();
   missileFlag = false;
-  createEnemy();
+  createEnemies(loadStrings("tokkoData.csv"));
 }
 
 void draw() {  
   background(255);
   resetGame();
-  println(frameCount);
+  println();
 
   if (myPlane.isDead == true) {
     return;
@@ -46,6 +46,7 @@ void draw() {
   for (MyMissile mm : myMissiles) { 
     mm.missileGo(enemies);
   }
+
   for (EnemyMissile em : enemyMissiles) { 
     em.missileGo(myPlane);
   }
@@ -56,6 +57,7 @@ void keyPressed() {
     missileFlag = true;
   }
 }
+
 
 void keyReleased() {
   if (key == ' ') {
@@ -77,8 +79,8 @@ void keyReleased() {
   }
 }
 
-void createEnemy() {
-  String lines[] = loadStrings("tokkoData.csv");
+void createEnemies(String lines[]) {
+  //String lines[] = loadStrings("tokkoData.csv");
   String [][] csv;
   int csvWidth=0;
 
@@ -104,16 +106,25 @@ void createEnemy() {
     float _x = Float.valueOf(csv[i][1]).floatValue();
     float _y = Float.valueOf(csv[i][2]).floatValue();
     float _s = Float.valueOf(csv[i][3]).floatValue();
-    int _type = Integer.valueOf(csv[i][4]).intValue();
-    int _direction = Integer.valueOf(csv[i][5]).intValue();
+    int _missileType = Integer.valueOf(csv[i][4]).intValue();
+    int _moveType = Integer.valueOf(csv[i][5]).intValue();
+    int _direction = Integer.valueOf(csv[i][6]).intValue();
 
-    Enemy enemy =new Enemy(_t, _x, _y, _s, _type, _direction);
-    enemies.add(enemy);
-    //println(_type);
+    if (_missileType == 0) 
+    {
+      Enemy enemy = new Enemy(_t, _x, _y, _s, _missileType, _moveType, _direction);
+      enemies.add(enemy);
+    }
+
+    if (_missileType == 1)
+    {
+      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _missileType, _moveType, _direction);
+      enemies.add(enemy);
+    }
   }
 }
 
-void createImage()
+void createImages()
 {
   String Plines[] = loadStrings("plane.csv"); 
   int PcsvWidth=0;
@@ -138,7 +149,7 @@ void createImage()
 }
 
 void resetGame() {
-  if (frameCount == 300) {
+  if (frameCount == 900) {
     frameCount = 0;
     for (Enemy enemy : enemies)
     {
@@ -147,6 +158,9 @@ void resetGame() {
       enemy.isDead = false;
     }
     myPlane.isDead = false;
+    myPlane.xPos = width/2.0;
+    myPlane.yPos = 7 * height/8.0;
+    createEnemies(loadStrings("tokkoData2.csv"));
   }
 }
 

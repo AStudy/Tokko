@@ -13,7 +13,7 @@ class MyMissile {
     for (Enemy e : enemies)
     {
       float distance = 100;
-      if (e.type == 1) {
+      if (e.moveType == 1) {
         distance = dist(xPos, yPos, e.x + e.count*e.s, e.y);
       }
       if (distance < 25) { 

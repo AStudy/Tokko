@@ -5,17 +5,19 @@ class Enemy
   int startTime;
   float x, y, s;
   float w = 50, h = 50;
-  int type;
+  int missileType;
+  int moveType;
   int direction;
   public boolean isDead = false;
 
-  Enemy(int _t, float _x, float _y, float _s,int _type, int _direction)
+  Enemy(int _t, float _x, float _y, float _s, int _missileType, int _moveType, int _direction)
   {
     startTime = _t;
     x = _x;
     y = _y;
     s = _s;
-    type = _type;
+    missileType = _missileType;
+    moveType = _moveType;
     direction = _direction;
   }
 
@@ -26,7 +28,7 @@ class Enemy
       pushMatrix();
       translate(x, y);
       scale(1, -1);
-      if (type == 1) { // yoko
+      if (moveType == 1) { // yoko
         image(images.get("tekijet.bmp"), s*count, 0);
       }
       if (direction == 1) count++;
