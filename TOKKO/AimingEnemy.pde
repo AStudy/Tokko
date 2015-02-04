@@ -8,13 +8,16 @@ class AimingEnemy extends Enemy
   
   void addMissile(MyPlane myPlane)
   {
-    float d = dist(x, y, myPlane.xPos, myPlane.yPos);
+    float mX = x;
+    float mY = y+h;
+    
+    float d = dist(mX, mY, myPlane.xPos, myPlane.yPos);
     if (d == 0) return;
     
-    float sX = (myPlane.xPos - x) / d * 5;
-    float sY = (myPlane.yPos - y) / d * 5;
+    float sX = (myPlane.xPos - mX) / d * 5;
+    float sY = (myPlane.yPos - mY) / d * 5;
     
-    EnemyMissile em = new EnemyMissile(x, y+h, sX, sY);
+    EnemyMissile em = new EnemyMissile(mX, mY, sX, sY);
     enemyMissiles.add(em);
   }
 
