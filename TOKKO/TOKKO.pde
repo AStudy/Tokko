@@ -87,28 +87,13 @@ void createEnemies(String lines[]) {
   for (int i=0; i < lines.length; i++) 
   {
     String [] chars=split(lines[i], ',');
-    if (chars.length>csvWidth) {
-      csvWidth=chars.length;
-    }
-  }
-  csv = new String [lines.length][csvWidth];
-  for (int i=0; i < lines.length; i++)
-  {
-    String [] temp = new String [lines.length];
-    temp= split(lines[i], ',');
-    for (int j=0; j < temp.length; j++) {
-      csv[i][j]=temp[j];
-    }
-  }
-
-  for (int i = 0; i < lines.length; i++) {
-    int _t = Integer.valueOf(csv[i][0]).intValue();
-    float _x = Float.valueOf(csv[i][1]).floatValue();
-    float _y = Float.valueOf(csv[i][2]).floatValue();
-    float _s = Float.valueOf(csv[i][3]).floatValue();
-    int _missileType = Integer.valueOf(csv[i][4]).intValue();
-    int _moveType = Integer.valueOf(csv[i][5]).intValue();
-    int _direction = Integer.valueOf(csv[i][6]).intValue();
+    int _t = Integer.valueOf(chars[0]).intValue();
+    float _x = Float.valueOf(chars[1]).floatValue();
+    float _y = Float.valueOf(chars[2]).floatValue();
+    float _s = Float.valueOf(chars[3]).floatValue();
+    int _missileType = Integer.valueOf(chars[4]).intValue();
+    int _moveType = Integer.valueOf(chars[5]).intValue();
+    int _direction = Integer.valueOf(chars[6]).intValue();
 
     if (_missileType == 0) 
     {
