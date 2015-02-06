@@ -29,7 +29,7 @@ class Enemy
       translate(x, y);
       scale(1, -1);
       if (moveType == 1) { // yoko
-        image(images.get("tekijet.bmp"), s*count, 0);
+        image(images.get("tekijet.png"), s*count, 0);
       }
       if (direction == 1) count++;
       if (direction == 3) count--;
