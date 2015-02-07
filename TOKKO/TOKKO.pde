@@ -5,6 +5,7 @@ ArrayList<MyMissile> myMissiles;
 boolean missileFlag;
 ArrayList<Enemy> enemies;
 ArrayList<EnemyMissile> enemyMissiles;
+int gameCount=1;
 
 void setup() {  
   size(720, 720);
@@ -97,13 +98,13 @@ void createEnemies(String lines[]) {
 
     if (_missileType == 0) 
     {
-      Enemy enemy = new Enemy(_t, _x, _y, _s, _missileType, _moveType, _direction);
+      Enemy enemy = new Enemy(_t, _x, _y, _s, _moveType, _direction);
       enemies.add(enemy);
     }
 
     if (_missileType == 1)
     {
-      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _missileType, _moveType, _direction);
+      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _moveType, _direction);
       enemies.add(enemy);
     }
   }
@@ -135,6 +136,7 @@ void createImages()
 
 void resetGame() {
   if (frameCount == 900) {
+    gameCount ++;
     frameCount = 0;
     for (Enemy enemy : enemies)
     {
@@ -145,7 +147,18 @@ void resetGame() {
     myPlane.isDead = false;
     myPlane.xPos = width/2.0;
     myPlane.yPos = 7 * height/8.0;
-    createEnemies(loadStrings("tokkoData2.csv"));
+    switch (gameCount % 2)
+    {
+    case 0:
+      enemies = new ArrayList<Enemy>();
+      createEnemies(loadStrings("tokkoData2.csv"));
+      break;
+
+    default:
+      enemies = new ArrayList<Enemy>();
+      createEnemies(loadStrings("tokkoData.csv"));
+      break;
+    }
   }
 }
 
