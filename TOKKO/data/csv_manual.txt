@@ -1,1 +1,8 @@
-A出現時間(t) B出現場所(x) C出現場所(y) Dスピード(s) Eミサイルの種類(missileType) F動きの種類(moveType) G動きの方向(direction)
+﻿共通項目
+A出現時間(t), B敵機の種類, C動きの種類(moveType),
+
+横コントローラー（Horizontal）
+D出現場所(x), E出現場所(y), Fスピード(s),  G動きの方向(direction)
+
+キーフレームコントローラー（Keyframe）
+D時間, E位置X, F位置Y, G(空白), HIJK...以下繰り返し

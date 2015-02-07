@@ -89,22 +89,21 @@ void createEnemies(String lines[]) {
   {
     String [] chars=split(lines[i], ',');
     int _t = Integer.valueOf(chars[0]).intValue();
-    float _x = Float.valueOf(chars[1]).floatValue();
-    float _y = Float.valueOf(chars[2]).floatValue();
-    float _s = Float.valueOf(chars[3]).floatValue();
-    int _missileType = Integer.valueOf(chars[4]).intValue();
-    int _moveType = Integer.valueOf(chars[5]).intValue();
+    String enemyType = chars[1];
+    String controllerType = chars[2];
+    float _x = Float.valueOf(chars[3]).floatValue();
+    float _y = Float.valueOf(chars[4]).floatValue();
+    float _s = Float.valueOf(chars[5]).floatValue();
     int _direction = Integer.valueOf(chars[6]).intValue();
 
-    if (_missileType == 0) 
+    if (enemyType.equals("Normal")) 
     {
-      Enemy enemy = new Enemy(_t, _x, _y, _s, _moveType, _direction);
+      Enemy enemy = new Enemy(_t, _x, _y, _s, _direction);
       enemies.add(enemy);
     }
-
-    if (_missileType == 1)
+    else if (enemyType.equals("Aiming"))
     {
-      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _moveType, _direction);
+      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _direction);
       enemies.add(enemy);
     }
   }
