@@ -2,19 +2,15 @@ class Enemy
 {
   public boolean check =false;
   int startTime;
-  float x, y, s;
+  float x, y;
   float w = 50, h = 50;
-  int direction;
   public boolean isDead = false;
+  Controller controller;
 
-  Enemy(int _t, float _x, float _y, float _s, int _direction)
+  Enemy(int _t, Controller _controller)
   {
     startTime = _t;
-    x = _x;
-    y = _y;
-    s = _s;
-    direction = _direction;
-    if (direction == 3){ s *= -1;}
+    controller = _controller;
   }
 
   void draw()
@@ -39,7 +35,9 @@ class Enemy
   {
     if (frameCount < this.startTime){ return; }
 
-    this.x += this.s;
+    float[] pos = this.controller.getPos();
+    x = pos[0];
+    y = pos[1];
     if (frameCount % 30 == 0)
     {
       addMissile(myPlane);

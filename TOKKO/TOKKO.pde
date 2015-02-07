@@ -96,14 +96,16 @@ void createEnemies(String lines[]) {
     float _s = Float.valueOf(chars[5]).floatValue();
     int _direction = Integer.valueOf(chars[6]).intValue();
 
+    Controller ctrl = new HorizontalController(_x, _y, _s, _direction);
+
     if (enemyType.equals("Normal")) 
     {
-      Enemy enemy = new Enemy(_t, _x, _y, _s, _direction);
+      Enemy enemy = new Enemy(_t, ctrl);
       enemies.add(enemy);
     }
     else if (enemyType.equals("Aiming"))
     {
-      AimingEnemy enemy = new AimingEnemy(_t, _x, _y, _s, _direction);
+      AimingEnemy enemy = new AimingEnemy(_t, ctrl);
       enemies.add(enemy);
     }
   }
