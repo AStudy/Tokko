@@ -14,7 +14,7 @@ class MyMissile {
     {
       float distance = 100;
       if (e.moveType == 1) {
-        distance = dist(xPos, yPos, e.x + e.count*e.s, e.y);
+        distance = dist(xPos, yPos, e.x, e.y);
       }
       if (distance < 25) { 
         e.isDead = true;

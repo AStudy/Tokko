@@ -1,7 +1,6 @@
 class Enemy
 {
   public boolean check =false;
-  int count = 0;
   int startTime;
   float x, y, s;
   float w = 50, h = 50;
@@ -17,6 +16,7 @@ class Enemy
     s = _s;
     moveType = _moveType;
     direction = _direction;
+    if (direction == 3){ s *= -1;}
   }
 
   void draw()
@@ -27,17 +27,15 @@ class Enemy
       translate(x, y);
       scale(1, -1);
       if (moveType == 1) { // yoko
-        image(images.get("tekijet.png"), s*count, 0);
+        image(images.get("tekijet.png"), 0, 0);
       }
-      if (direction == 1) count++;
-      if (direction == 3) count--;
       popMatrix();
     }
   } 
 
   void addMissile(MyPlane myPlane)
   {
-    EnemyMissile em = new EnemyMissile(x+s*count, y+h);
+    EnemyMissile em = new EnemyMissile(x, y+h/2);
     enemyMissiles.add(em);
   }
 
@@ -45,6 +43,7 @@ class Enemy
   {
     if (frameCount < this.startTime){ return; }
 
+    this.x += this.s;
     if (frameCount % 30 == 0)
     {
       addMissile(myPlane);

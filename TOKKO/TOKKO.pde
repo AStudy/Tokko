@@ -141,7 +141,6 @@ void resetGame() {
     for (Enemy enemy : enemies)
     {
       enemy.check = false;
-      enemy.count = 0;
       enemy.isDead = false;
     }
     myPlane.isDead = false;
