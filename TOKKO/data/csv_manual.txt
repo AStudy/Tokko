@@ -1,1 +1,1 @@
-1出現時間(t) 2出現場所(x) 3出現場所(y) 4スピード(s) 5動きの種類(type) 6動きの方向(direction)
+A出現時間(t) B出現場所(x) C出現場所(y) Dスピード(s) Eミサイルの種類(missileType) F動きの種類(moveType) G動きの方向(direction)
