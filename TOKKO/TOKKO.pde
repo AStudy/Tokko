@@ -118,20 +118,7 @@ void createImages()
   String [][] csv;
   for (int i=0; i < lines.length; i++) {
     String [] chars=split(lines[i], ',');
-    if (chars.length>csvWidth) {
-      csvWidth=chars.length;
-    }
-  }
-  csv = new String [lines.length][csvWidth];
-  for (int i=0; i < lines.length; i++) {
-    String [] temp = new String [lines.length];
-    temp= split(lines[i], ',');
-    for (int j=0; j < temp.length; j++) {
-      csv[i][j]=temp[j];
-    }
-  }
-  for (int i = 0; i < lines.length; i++) {
-    images.put(csv[i][0], loadImage(csv[i][0]));
+    images.put(chars[0], loadImage(chars[0]));
   }
 }
 
