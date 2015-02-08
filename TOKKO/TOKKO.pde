@@ -82,8 +82,6 @@ void keyReleased() {
 
 void createEnemies(String lines[]) {
   //String lines[] = loadStrings("tokkoData.csv");
-  String [][] csv;
-  int csvWidth=0;
 
   for (int i=0; i < lines.length; i++) 
   {
@@ -114,11 +112,8 @@ void createEnemies(String lines[]) {
 void createImages()
 {
   String lines[] = loadStrings("plane.csv"); 
-  int csvWidth=0;
-  String [][] csv;
   for (int i=0; i < lines.length; i++) {
-    String [] chars=split(lines[i], ',');
-    images.put(chars[0], loadImage(chars[0]));
+    images.put(lines[i], loadImage(lines[i]));
   }
 }
 
