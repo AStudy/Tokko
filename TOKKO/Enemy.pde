@@ -25,13 +25,13 @@ class Enemy
     }
   } 
 
-  void addMissile(MyPlane myPlane)
+  void addMissile(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
   {
     EnemyMissile em = new EnemyMissile(x, y+h/2);
     enemyMissiles.add(em);
   }
 
-  void done(MyPlane myPlane)
+  void done(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
   {
     if (frameCount < this.startTime){ return; }
 
@@ -40,7 +40,7 @@ class Enemy
     y = pos[1];
     if (frameCount % 30 == 0)
     {
-      addMissile(myPlane);
+      addMissile(enemyMissiles, myPlane);
     }
   }
 }

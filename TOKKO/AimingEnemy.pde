@@ -6,7 +6,7 @@ class AimingEnemy extends Enemy
     super(_t, controller);
   }
   
-  void addMissile(MyPlane myPlane)
+  void addMissile(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
   {
     float mX = x;
     float mY = y+h;

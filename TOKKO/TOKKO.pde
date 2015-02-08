@@ -1,112 +1,29 @@
 HashMap<String, PImage> images = new HashMap<String, PImage>();
-
-MyPlane myPlane;
-ArrayList<MyMissile> myMissiles;
-boolean missileFlag;
-ArrayList<Enemy> enemies;
-ArrayList<EnemyMissile> enemyMissiles;
 int gameCount=1;
+Stage stage;
 
 void setup() {  
   size(720, 720);
   background(255);
   frameRate(30);
   imageMode(CENTER);
+
   createImages();
-  myPlane = new MyPlane();
-  myMissiles = new ArrayList<MyMissile>();
-  enemies = new ArrayList<Enemy>();
-  enemyMissiles = new ArrayList<EnemyMissile>();
-  missileFlag = false;
-  createEnemies(loadStrings("tokkoData.csv"));
+  stage = new Stage("tokkoData.csv");
 }
 
 void draw() {  
-  background(255);
   resetGame();
-  println();
-
-  if (myPlane.isDead == true) {
-    return;
-  }
-
-  if (missileFlag) {
-    MyMissile myMissile = new MyMissile(myPlane.xPos, myPlane.yPos);
-    myMissiles.add(myMissile);
-  }
-  myPlane.mydraw();
-
-  for (Enemy enemy : enemies)
-  {
-    if (enemy.isDead == false) {
-      enemy.done(myPlane);
-      enemy.draw();
-    }
-  }
-
-  for (MyMissile mm : myMissiles) { 
-    mm.missileGo(enemies);
-  }
-
-  for (EnemyMissile em : enemyMissiles) { 
-    em.missileGo(myPlane);
-  }
+  stage.draw();
 }
 
 void keyPressed() {
-  if (key == ' ') {
-    missileFlag = true;
-  }
+  stage.keyPressed();
 }
 
 
 void keyReleased() {
-  if (key == ' ') {
-    missileFlag = false;
-  }
-  if (key == CODED) {
-    if (keyCode == UP) {
-      myPlane.upFlag = false;
-    }
-    if (keyCode == DOWN) {
-      myPlane.downFlag = false;
-    }
-    if (keyCode == RIGHT) {
-      myPlane.rightFlag = false;
-    }
-    if (keyCode == LEFT) {
-      myPlane.leftFlag = false;
-    }
-  }
-}
-
-void createEnemies(String lines[]) {
-  //String lines[] = loadStrings("tokkoData.csv");
-
-  for (int i=0; i < lines.length; i++) 
-  {
-    String [] chars=split(lines[i], ',');
-    int _t = parseInt(chars[0]);
-    String enemyType = chars[1];
-    String controllerType = chars[2];
-    float _x = parseFloat(chars[3]);
-    float _y = parseFloat(chars[4]);
-    float _s = parseFloat(chars[5]);
-    int _direction = parseInt(chars[6]);
-
-    Controller ctrl = new HorizontalController(_x, _y, _s, _direction);
-
-    if (enemyType.equals("Normal")) 
-    {
-      Enemy enemy = new Enemy(_t, ctrl);
-      enemies.add(enemy);
-    }
-    else if (enemyType.equals("Aiming"))
-    {
-      AimingEnemy enemy = new AimingEnemy(_t, ctrl);
-      enemies.add(enemy);
-    }
-  }
+  stage.keyReleased();
 }
 
 void createImages()
@@ -121,24 +38,13 @@ void resetGame() {
   if (frameCount == 900) {
     gameCount ++;
     frameCount = 0;
-    for (Enemy enemy : enemies)
-    {
-      enemy.check = false;
-      enemy.isDead = false;
-    }
-    myPlane.isDead = false;
-    myPlane.xPos = width/2.0;
-    myPlane.yPos = 7 * height/8.0;
     switch (gameCount % 2)
     {
     case 0:
-      enemies = new ArrayList<Enemy>();
-      createEnemies(loadStrings("tokkoData2.csv"));
+      stage = new Stage("tokkoData2.csv");
       break;
-
     default:
-      enemies = new ArrayList<Enemy>();
-      createEnemies(loadStrings("tokkoData.csv"));
+      stage = new Stage("tokkoData.csv");
       break;
     }
   }
