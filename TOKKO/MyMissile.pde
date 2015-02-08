@@ -12,8 +12,9 @@ class MyMissile {
 
     for (Enemy e : enemies)
     {
-      float distance = 100;
-      distance = dist(xPos, yPos, e.x, e.y);
+      if(frameCount < e.startTime){continue;}
+
+      float distance = dist(xPos, yPos, e.x, e.y);
       if (distance < 25) { 
         e.isDead = true;
       }
