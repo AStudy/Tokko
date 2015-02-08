@@ -88,13 +88,13 @@ void createEnemies(String lines[]) {
   for (int i=0; i < lines.length; i++) 
   {
     String [] chars=split(lines[i], ',');
-    int _t = Integer.valueOf(chars[0]).intValue();
+    int _t = parseInt(chars[0]);
     String enemyType = chars[1];
     String controllerType = chars[2];
-    float _x = Float.valueOf(chars[3]).floatValue();
-    float _y = Float.valueOf(chars[4]).floatValue();
-    float _s = Float.valueOf(chars[5]).floatValue();
-    int _direction = Integer.valueOf(chars[6]).intValue();
+    float _x = parseFloat(chars[3]);
+    float _y = parseFloat(chars[4]);
+    float _s = parseFloat(chars[5]);
+    int _direction = parseInt(chars[6]);
 
     Controller ctrl = new HorizontalController(_x, _y, _s, _direction);
 
