@@ -79,13 +79,8 @@ class Stage
       String [] chars=split(lines[i], ',');
       int _t = parseInt(chars[0]);
       String enemyType = chars[1];
-      String controllerType = chars[2];
-      float _x = parseFloat(chars[3]);
-      float _y = parseFloat(chars[4]);
-      float _s = parseFloat(chars[5]);
-      int _direction = parseInt(chars[6]);
-  
-      Controller ctrl = new HorizontalController(_x, _y, _s, _direction);
+
+      Controller ctrl = createController(chars);
   
       if (enemyType.equals("Normal")) 
       {
