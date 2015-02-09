@@ -1,9 +1,9 @@
 class AimingEnemy extends Enemy
 {
 
-  AimingEnemy(int _t, Controller controller)
+  AimingEnemy(String[] args)
   {
-    super(_t, controller);
+    super(args);
   }
   
   void addMissile(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)

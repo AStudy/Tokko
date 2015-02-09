@@ -77,19 +77,16 @@ class Stage
     for (int i=0; i < lines.length; i++) 
     {
       String [] chars=split(lines[i], ',');
-      int _t = parseInt(chars[0]);
       String enemyType = chars[1];
 
-      Controller ctrl = createController(chars);
-  
       if (enemyType.equals("Normal")) 
       {
-        Enemy enemy = new Enemy(_t, ctrl);
+        Enemy enemy = new Enemy(chars);
         enemies.add(enemy);
       }
       else if (enemyType.equals("Aiming"))
       {
-        AimingEnemy enemy = new AimingEnemy(_t, ctrl);
+        AimingEnemy enemy = new AimingEnemy(chars);
         enemies.add(enemy);
       }
     }

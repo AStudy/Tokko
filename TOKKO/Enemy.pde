@@ -7,10 +7,10 @@ class Enemy
   public boolean isDead = false;
   Controller controller;
 
-  Enemy(int _t, Controller _controller)
+  Enemy(String[] args)
   {
-    startTime = _t;
-    controller = _controller;
+    startTime = parseInt(args[0]);
+    controller = createController(args);
   }
 
   void draw()
