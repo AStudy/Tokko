@@ -9,7 +9,7 @@ void setup() {
   imageMode(CENTER);
 
   createImages();
-  stage = new Stage("tokkoData.csv");
+  stage = new Stage("stage3.csv");
 }
 
 void draw() {  
