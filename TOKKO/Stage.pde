@@ -74,9 +74,9 @@ class Stage
   }
   
   void createEnemies(String lines[]) {
-    for (int i=0; i < lines.length; i++) 
+    for(String line: lines)
     {
-      String [] chars=split(lines[i], ',');
+      String [] chars = split(line, ',');
       String enemyType = chars[1];
 
       if (enemyType.equals("Normal")) 
