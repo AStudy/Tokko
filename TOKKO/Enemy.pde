@@ -42,6 +42,7 @@ class Enemy
     {
       addMissile(enemyMissiles, myPlane);
     }
+    if(x > width || y > height) isDead = true;
   }
 }
 

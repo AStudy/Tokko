@@ -9,7 +9,7 @@ void setup() {
   imageMode(CENTER);
 
   createImages();
-  stage = new Stage("stage3.csv");
+  stage = new Stage("tokkoData3.csv");
 }
 
 void draw() {  
@@ -29,7 +29,7 @@ void keyReleased() {
 void createImages()
 {
   String lines[] = loadStrings("plane.csv"); 
-  for(String line: lines){
+  for (String line : lines) {
     images.put(line, loadImage(line));
   }
 }
@@ -38,13 +38,16 @@ void resetGame() {
   if (frameCount == 900) {
     gameCount ++;
     frameCount = 0;
-    switch (gameCount % 2)
+    switch (gameCount % 3)
     {
-    case 0:
+    case 1:
+      stage = new Stage("tokkoData.csv");
+      break;
+    case 2:
       stage = new Stage("tokkoData2.csv");
       break;
     default:
-      stage = new Stage("tokkoData.csv");
+      stage = new Stage("tokkoData3.csv");
       break;
     }
   }
