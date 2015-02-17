@@ -29,8 +29,8 @@ void keyReleased() {
 void createImages()
 {
   String lines[] = loadStrings("plane.csv"); 
-  for (int i=0; i < lines.length; i++) {
-    images.put(lines[i], loadImage(lines[i]));
+  for(String line: lines){
+    images.put(line, loadImage(line));
   }
 }
 
