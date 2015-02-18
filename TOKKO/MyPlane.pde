@@ -11,7 +11,7 @@ class MyPlane {
   }
 
   void mydraw(){
-    image(images.get("mySentouki.png"), xPos, yPos);
+    image(images.get("myPursuit.png"), xPos, yPos);
     
     
     if(upFlag == true) yPos = max(yPos - moveValue, 0); //Go up

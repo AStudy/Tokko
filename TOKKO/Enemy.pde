@@ -20,7 +20,7 @@ class Enemy
       pushMatrix();
       translate(x, y);
       scale(1, -1);
-      image(images.get("tekiSentouki.png"), 0, 0);
+      image(images.get("tekiPursuit.png"), 0, 0);
       popMatrix();
     }
   } 
