@@ -1,6 +1,8 @@
 HashMap<String, PImage> images = new HashMap<String, PImage>();
-int gameCount=1;
+int gameCount=0;
 Stage stage;
+String[] stages = {};
+int numberOfStages;
 
 void setup() {  
   size(720, 720);
@@ -9,7 +11,8 @@ void setup() {
   imageMode(CENTER);
 
   createImages();
-  stage = new Stage("tokkoData.csv");
+  createStages();
+  stage = new Stage(stages[0]);
 }
 
 void draw() {  
@@ -34,19 +37,21 @@ void createImages()
   }
 }
 
+void createStages()
+{
+  String lines[] = loadStrings("stage.csv");
+  for (String line : lines)
+  {
+    stages = (String[])append(stages, line);
+    numberOfStages++;
+  }
+}
+  
 void resetGame() {
   if (frameCount == 900) {
     gameCount ++;
     frameCount = 0;
-    switch (gameCount % 2)
-    {
-    case 1:
-      stage = new Stage("tokkoData.csv");
-      break;
-    default:
-      stage = new Stage("tokkoData2.csv");
-      break;
-    }
+    stage = new Stage(stages[gameCount % numberOfStages]);
   }
 }
 
