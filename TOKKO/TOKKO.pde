@@ -9,7 +9,7 @@ void setup() {
   imageMode(CENTER);
 
   createImages();
-  stage = new Stage("tokkoData3.csv");
+  stage = new Stage("tokkoData.csv");
 }
 
 void draw() {  
@@ -38,16 +38,13 @@ void resetGame() {
   if (frameCount == 900) {
     gameCount ++;
     frameCount = 0;
-    switch (gameCount % 3)
+    switch (gameCount % 2)
     {
     case 1:
       stage = new Stage("tokkoData.csv");
       break;
-    case 2:
-      stage = new Stage("tokkoData2.csv");
-      break;
     default:
-      stage = new Stage("tokkoData3.csv");
+      stage = new Stage("tokkoData2.csv");
       break;
     }
   }
