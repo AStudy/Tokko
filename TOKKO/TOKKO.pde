@@ -2,7 +2,6 @@ HashMap<String, PImage> images = new HashMap<String, PImage>();
 int gameCount=0;
 Stage stage;
 String[] stages = {};
-int numberOfStages;
 
 void setup() {  
   size(720, 720);
@@ -43,15 +42,14 @@ void createStages()
   for (String line : lines)
   {
     stages = (String[])append(stages, line);
-    numberOfStages++;
   }
 }
   
 void resetGame() {
-  if (frameCount == 900) {
+  if (frameCount == 300) {
     gameCount ++;
     frameCount = 0;
-    stage = new Stage(stages[gameCount % numberOfStages]);
+    stage = new Stage(stages[gameCount % stages.length]);
   }
 }
 

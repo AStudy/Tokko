@@ -28,7 +28,7 @@ class Enemy
   void addBullet(ArrayList<EnemyBullet> enemyBullets, MyPlane myPlane)
   {
     EnemyBullet eb = new EnemyBullet(x, y+h/2);
-    enemyBullet.add(eb);
+    enemyBullets.add(eb);
   }
 
   void done(ArrayList<EnemyBullet> enemyBullet, MyPlane myPlane)

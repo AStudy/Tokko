@@ -18,7 +18,7 @@ class AimingEnemy extends Enemy
     float sY = (myPlane.yPos - mY) / d * 5;
     
     EnemyBullet eb = new EnemyBullet(mX, mY, sX, sY);
-    //enemyBullet.add(eb);
+    enemyBullets.add(eb);
   }
 
 }

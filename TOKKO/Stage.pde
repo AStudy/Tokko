@@ -32,7 +32,7 @@ class Stage
     for (Enemy enemy : enemies)
     {
       if (enemy.isDead == false) {
-        enemy.done(enemyBullet, myPlane);
+        enemy.done(enemyBullets, myPlane);
         enemy.draw();
       }
     }
