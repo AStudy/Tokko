@@ -6,7 +6,7 @@ class AimingEnemy extends Enemy
     super(args);
   }
   
-  void addMissile(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
+  void addBullet(ArrayList<EnemyBullet> enemyBullets, MyPlane myPlane)
   {
     float mX = x;
     float mY = y+h;
@@ -17,8 +17,8 @@ class AimingEnemy extends Enemy
     float sX = (myPlane.xPos - mX) / d * 5;
     float sY = (myPlane.yPos - mY) / d * 5;
     
-    EnemyMissile em = new EnemyMissile(mX, mY, sX, sY);
-    enemyMissiles.add(em);
+    EnemyBullet eb = new EnemyBullet(mX, mY, sX, sY);
+    //enemyBullet.add(eb);
   }
 
 }

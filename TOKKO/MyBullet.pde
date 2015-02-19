@@ -1,12 +1,12 @@
-class MyMissile {
+class MyBullet {
   float xPos, yPos;
 
-  MyMissile(float _xPos, float _yPos) {
+  MyBullet(float _xPos, float _yPos) {
     xPos = _xPos;
     yPos = _yPos;
   }
 
-  boolean missileGo(ArrayList<Enemy> enemies) {
+  boolean bulletGo(ArrayList<Enemy> enemies) {
     yPos = yPos - 5;
     ellipse(xPos, yPos, 5, 5);
 

@@ -25,13 +25,13 @@ class Enemy
     }
   } 
 
-  void addMissile(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
+  void addBullet(ArrayList<EnemyBullet> enemyBullets, MyPlane myPlane)
   {
-    EnemyMissile em = new EnemyMissile(x, y+h/2);
-    enemyMissiles.add(em);
+    EnemyBullet eb = new EnemyBullet(x, y+h/2);
+    enemyBullet.add(eb);
   }
 
-  void done(ArrayList<EnemyMissile> enemyMissiles, MyPlane myPlane)
+  void done(ArrayList<EnemyBullet> enemyBullet, MyPlane myPlane)
   {
     if (frameCount < this.startTime){ return; }
 
@@ -40,7 +40,7 @@ class Enemy
     y = pos[1];
     if (frameCount % 30 == 0)
     {
-      addMissile(enemyMissiles, myPlane);
+      addBullet(enemyBullet, myPlane);
     }
     if(x > width || y > height) isDead = true;
   }

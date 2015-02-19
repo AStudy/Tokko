@@ -1,18 +1,18 @@
 class Stage
 {
   MyPlane myPlane;
-  ArrayList<MyMissile> myMissiles;
-  boolean missileFlag;
+  ArrayList<MyBullet> myBullets;
+  boolean bulletFlag;
   ArrayList<Enemy> enemies;
-  ArrayList<EnemyMissile> enemyMissiles;
+  ArrayList<EnemyBullet> enemyBullets;
   
   Stage(String settingPath)
   {
     myPlane = new MyPlane();
-    myMissiles = new ArrayList<MyMissile>();
+    myBullets = new ArrayList<MyBullet>();
     enemies = new ArrayList<Enemy>();
-    enemyMissiles = new ArrayList<EnemyMissile>();
-    missileFlag = false;
+    enemyBullets = new ArrayList<EnemyBullet>();
+    bulletFlag = false;
     createEnemies(loadStrings(settingPath));
   }
   
@@ -23,39 +23,39 @@ class Stage
       return;
     }
 
-    if (missileFlag) {
-      MyMissile myMissile = new MyMissile(myPlane.xPos, myPlane.yPos);
-      myMissiles.add(myMissile);
+    if (bulletFlag) {
+      MyBullet myBullet = new MyBullet(myPlane.xPos, myPlane.yPos);
+      myBullets.add(myBullet);
     }
     myPlane.mydraw();
 
     for (Enemy enemy : enemies)
     {
       if (enemy.isDead == false) {
-        enemy.done(enemyMissiles, myPlane);
+        enemy.done(enemyBullet, myPlane);
         enemy.draw();
       }
     }
 
-    for (MyMissile mm : myMissiles) { 
-      mm.missileGo(enemies);
+    for (MyBullet mb : myBullets) { 
+      mb.bulletGo(enemies);
     }
 
-    for (EnemyMissile em : enemyMissiles) { 
-      em.missileGo(myPlane);
+    for (EnemyBullet eb : enemyBullets) { 
+      eb.bulletGo(myPlane);
     }
   }
   
   void keyPressed()
   {
     if (key == ' ') {
-      missileFlag = true;
+      bulletFlag = true;
     }
   }
   
   void keyReleased() {
     if (key == ' ') {
-      missileFlag = false;
+      bulletFlag = false;
     }
     if (key == CODED) {
       if (keyCode == UP) {
