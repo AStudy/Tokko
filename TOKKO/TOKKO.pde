@@ -46,7 +46,7 @@ void createStages()
 }
   
 void resetGame() {
-  if (frameCount == 300) {
+  if (frameCount == 900) {
     gameCount ++;
     frameCount = 0;
     stage = new Stage(stages[gameCount % stages.length]);
